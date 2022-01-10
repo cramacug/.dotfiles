@@ -35,7 +35,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    ip                    # ip address and bandwidth usage for a specified network interface
+    context                 # user@hostname
     public_ip             # public IP address
     proxy                 # system-wide http/https/ftp proxy
     # =========================[ Line #2 ]=========================
@@ -87,7 +87,6 @@
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     toolbox                 # toolbox name (https://github.com/containers/toolbox)
-    context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
@@ -96,6 +95,7 @@
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
+    # ip                    # ip address and bandwidth usage for a specified network interface
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
     # disk_usage            # disk usage
