@@ -10,9 +10,6 @@
     ~/.config/htop/htoprc:
       create: true
       path: htoprc
-    ~/.ideavimrc:
-      create: true
-      path: ideavimrc
     ~/.p10k.zsh:
       create: true
       path: p10k.zsh

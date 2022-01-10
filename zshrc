@@ -78,16 +78,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    colored-man-pages
-    virtualenv
-    pip
-    python
-    brew
-    macos
-    docker
+  git
+  zsh-syntax-highlighting
+  colored-man-pages
+  helm
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,22 +104,20 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
-### @@@@@ My Aliases @@@@ ###
-# alias ll='ls -lXh'
-alias ll='ls -lh'
-
+### My Aliases ###
+alias ll='ls -lXh'
 alias mv='mv -v'
 alias cp='cp -v'
 #
@@ -139,22 +132,38 @@ alias avenv='source .venv/bin/activate'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 alias vimf='vim $(fzf)'
+alias aptlist='sudo apt-get update && apt list --upgradable'
+alias aptupgrade='sudo apt-get upgrade -y'
 
-# MISC
+alias dmesg='dmesg -T'
 alias pingg='ping www.google.com'
 
-# FZF
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview 'bat --style=numbers --color=always --line-range :500 {}'"
-#
-# p10K
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# POWER_LEVEL_9K FOR SERVER
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user host dir dir_writable ip public_ip vpn_ip vcs)
 
-# @@@@@@@@@ CUSTOM PATHS  @@@@@@@@@ 
-# Homebrew
-export PATH=~/.homebrew/bin/:$PATH
-export PATH=~/.homebrew/opt/ncurses/bin:$PATH
-export PATH=~/.homebrew/opt/ncurses/bin:$PATH
+# POWER_LEVEL_9K FOR DESKTOP
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user root_indicator vcs dir dir_writable)
+# ZSH_THEME_VIRTUALENV_PREFIX=[Python_Venv]
+# ZSH_THEME_VIRTUALENV_SUFFIX=[-------]
+
+# OTHER POWER_LEVEL_9K CONFIGURATIONS
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user vcs dir dir_writable)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user ssh ip public_ip vcs dir dir_writable)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user dir dir_writable newline ssh ip public_ip vpn_ip vcs)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery status user dir dir_writable newline ssh ip public_ip vpn_ip newline vcs)
 #
-# Java JDK 1.8
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+# PATH=$PATH:/opt/helm/helm-v3_4_1
+
+# K8s
+[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
+#
+# alias kubectl_v='kubectl version -o json | jq .'
+alias kapp='kubectl apply -f'
+alias w2='watch -n 2'
+
+[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
