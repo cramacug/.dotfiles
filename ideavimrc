@@ -74,9 +74,8 @@ vnoremap == :action ReformatCode<CR>
 " ................................................
 " --> COMMAND + b
 "nnoremap gd :action GotoDeclaration<CR>
-map gd <Action>(GotoDeclaration) || zz
+map gd <Action>(GotoDeclaration)<CR>
 " --> COMMAND + SHIFT +  b
-"nnoremap gi :action GotoImplementation<CR>
 nnoremap gi :action GotoImplementation<CR>
 " --> COMMAND + u
 nnoremap gs :action GotoSuperMethod<CR>
